@@ -29,17 +29,15 @@ var views = {
 			.margin(1, 2)
 			.background('blue')
 			.foreground('white')
-			.menu([
-				new interfais.Command('Home page').makeExecutable(function() {
+			.option('Home page', function() {
 					interfais.routeManager.openRoute('');
-				}),
-				new interfais.Command('Other page').makeExecutable(function() {
+				})
+			.option('Other page',function() {
 					interfais.routeManager.openRoute('other-page');
-				}),
-				new interfais.Command('Quit').makeExecutable(function() {
+				})
+			.option('Quit',function() {
 					process.exit();
 				})
-			])
 			.spacer()
 			.paragraph('Use tab to move focus between shells, use arrows to move focus within a menu and confirm with return.')
 	}),
