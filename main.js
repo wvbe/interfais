@@ -7,8 +7,5 @@ module.exports = {
 	contentFactory: require('./lib/factories/uiFactory'),
 
 	inputManager: require('./lib/managers/inputManager'),
-	routeManager: require('./lib/managers/RouteManager'),
-
-	// @TODO: Probably deprecate this as well in favour of a simpler label:callback pairs
-	Command: require('./lib/classes/Command')
+	routeManager: require('./lib/managers/RouteManager')
 };
