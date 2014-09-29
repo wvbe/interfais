@@ -1,0 +1,5 @@
+.idea/
+node_modules/
+.clirc
+out/
+npm-debug.log

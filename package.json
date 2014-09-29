@@ -1,0 +1,22 @@
+{
+  "name": "interfais",
+  "version": "0.0.9",
+  "description": "Framework to quickly create your own terminal GUI.",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "start": "node example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.crossfrontal.com:wvbe/cli.git"
+  },
+  "author": "wvbe <wybe@x-54.com>",
+  "homepage": "http://0x.ee",
+  "license": "MIT",
+  "dependencies": {
+    "charm": "^0.2.0",
+    "keypress": "^0.2.1",
+    "wordwrap": "0.0.2"
+  }
+}
