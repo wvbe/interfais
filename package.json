@@ -1,6 +1,6 @@
 {
   "name": "interfais",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Framework to quickly create your own terminal GUI.",
   "main": "main.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.crossfrontal.com:wvbe/cli.git"
+    "url": "git@github.com:wvbe/interfais.git"
   },
   "author": "wvbe <wybe@x-54.com>",
   "homepage": "http://0x.ee",
