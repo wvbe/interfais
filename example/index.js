@@ -44,6 +44,7 @@ var views = {
 
 	// Some of the ui elements implemented
 	'content--home': interfais.viewFactory(function(ui) {
+
 		ui
 			.margin(1, 2)
 			.h1('Home page of some sorts')
@@ -64,10 +65,28 @@ var views = {
 
 	// A view that is opened through anoter route, would replace content--home
 	'content--other-page': interfais.viewFactory(function(ui) {
+		var lastSubmitted = null;
+
 		ui
 			.padding(1, 2)
 			.h1('The other page')
-			.paragraph('This is the other page');
+			.paragraph('This is the other page')
+
+			.spacer()
+			.input('Regular:    ', function(data) {
+				lastSubmitted = data;
+				ui.render();
+			})
+			.input('Hidden:     ', function(data) {
+				lastSubmitted = data;
+				ui.render();
+			}, { hidden: true })
+			.spacer()
+			.paragraph(function() {
+				return ['Last submitted: ' + lastSubmitted];
+			})
+
+
 	}),
 
 	// Ui using a callback to display dynamic content
