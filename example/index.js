@@ -70,23 +70,28 @@ var views = {
 		ui
 			.padding(1, 2)
 			.h1('The other page')
-			.paragraph('This is the other page')
+
+			.paragraph('This is the other page. It has a formatted paragraph and input fields :D', {
+				bold: true
+			})
 
 			.spacer()
+
 			.input('Regular:    ', function(data) {
 				lastSubmitted = data;
 				ui.render();
 			})
+
 			.input('Hidden:     ', function(data) {
 				lastSubmitted = data;
 				ui.render();
 			}, { hidden: true })
+
 			.spacer()
+
 			.paragraph(function() {
 				return ['Last submitted: ' + lastSubmitted];
 			})
-
-
 	}),
 
 	// Ui using a callback to display dynamic content

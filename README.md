@@ -15,7 +15,7 @@ To create your own view:
 
 ```
 var interfais = require('interfais');
-module.exports = interfais.viewFactory(function(ui) {
+module.exports = interfais.viewFactory(function(ui, viewParameters) {
     var lastBurger = new Date().getTime();
     ui
         .background('blue')
@@ -51,14 +51,15 @@ module.exports = interfais.viewFactory(function(ui) {
             // Run when option item is selected
             
             // Example:
-            interfais.routeManager.openRoute('special-page');
+            interfais.routeManager.openRoute('regular-page', {
+            	randomViewParameter: Math.floor(Math.random() * 1337)
+            });
         })
 
         // Adds an input field (password-ish) that executes callback on [return]
         .input('Secret password: ', function(givenPassword) {
-            if(givenPassword !== 'interfais') {
-                console.log('Wrong password, please read code');
-                process.exit();
+            if(givenPassword === 'interfais') {
+            	interfais.routeManager.openRoute('secure-page');
             }
         }, { hidden: true})
 
@@ -97,12 +98,18 @@ npm install git+https://git@github.com/wvbe/interfais.git#develop --save
 ```
 
 # Other notes
-I'm not very good with versioning, so I'll not bother with it while I'm still the only one using this project. Ff you'd like to use this project and require versioned dependencies, point to a specific commit, send me a message (and I'll version) or create a fork. Pull requests are, of course, encouraged!
+I'm not very good with versioning, so I'll not bother with it while I'm still the only one using this project. If you'd like to use this project and require versioned dependencies, point to a specific commit, send me a message (and I'll version) or create a fork. Pull requests are, of course, encouraged!
 
 # Updates or next release
 * ui.input() configurator for text or input fields
+* ui.paragraph() takes formatting as second argument
+* ui.line() now also takes string arrays as first argument
 * Use a 404 view if provided and applicable
+* Fixed a rather serious bug that caused loads of rerenders
 
+# Known bugs
+* The system runs into an infinite loop or division by zero somewhere when the UI is too narrow to leave room for stretching cells one fixed-width cells take up all the space. For this reason, the minimum layout width is hardcoded to 60 columns.
+* Input fields may render partial formatting characters when they are almost as wide as the available width. The input value should be clipped, instead of the whole rendered line.
 
 # Licence
 Copyright (c) 2014 Wybe Minnebo
