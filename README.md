@@ -53,7 +53,15 @@ module.exports = interfais.viewFactory(function(ui) {
             // Example:
             interfais.routeManager.openRoute('special-page');
         })
-        
+
+        // Adds an input field (password-ish) that executes callback on [return]
+        .input('Secret password: ', function(givenPassword) {
+            if(givenPassword !== 'interfais') {
+                console.log('Wrong password, please read code');
+                process.exit();
+            }
+        }, { hidden: true})
+
         // Force view rerender every x milliseconds
         .interval(1000)
         
@@ -90,6 +98,11 @@ npm install git+https://git@github.com/wvbe/interfais.git#develop --save
 
 # Other notes
 I'm not very good with versioning, so I'll not bother with it while I'm still the only one using this project. Ff you'd like to use this project and require versioned dependencies, point to a specific commit, send me a message (and I'll version) or create a fork. Pull requests are, of course, encouraged!
+
+# Updates or next release
+* ui.input() configurator for text or input fields
+* Use a 404 view if provided and applicable
+
 
 # Licence
 Copyright (c) 2014 Wybe Minnebo
