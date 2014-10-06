@@ -100,7 +100,7 @@ npm install git+https://git@github.com/wvbe/interfais.git#develop --save
 # Other notes
 I'm not very good with versioning, so I'll not bother with it while I'm still the only one using this project. If you'd like to use this project and require versioned dependencies, point to a specific commit, send me a message (and I'll version) or create a fork. Pull requests are, of course, encouraged!
 
-# Updates or next release
+# Updates for next tagged release
 * ui.input() configurator for text or input fields
 * ui.paragraph() takes formatting as second argument
 * ui.line() now also takes string arrays as first argument
