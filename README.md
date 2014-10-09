@@ -100,12 +100,24 @@ npm install git+https://git@github.com/wvbe/interfais.git#develop --save
 # Other notes
 I'm not very good with versioning, so I'll not bother with it while I'm still the only one using this project. If you'd like to use this project and require versioned dependencies, point to a specific commit, send me a message (and I'll version) or create a fork. Pull requests are, of course, encouraged!
 
-# Updates for next tagged release
-* ui.input() configurator for text or input fields
-* ui.paragraph() takes formatting as second argument
-* ui.line() now also takes string arrays as first argument
-* Use a 404 view if provided and applicable
-* Fixed a rather serious bug that caused loads of rerenders
+* Bucket list
+    * Instantiate managers within app properly
+    * Compatibility with other OS'es than Ubuntu
+    * Try it on a mac
+* v 0.1.1
+    * scrolling with shift+up and shift+down
+    * ui.input() configurator for text or input fields
+    * ui.paragraph() takes formatting as second argument
+    * ui.line() now also takes string arrays as first argument
+    * ui emits events for lifecycle and interactivity events
+    * Use a 404 view if provided and applicable
+    * Fixed a rather serious bug that caused loads of rerenders
+    * Reusing FocusManager for ui interactivity as well
+* v 0.1.0
+    * Initial release
+
+# Compatibility
+Works on my machine (ubuntu box). Doesn't work on windows. Not tested on an apple.
 
 # Known bugs
 * The system runs into an infinite loop or division by zero somewhere when the UI is too narrow to leave room for stretching cells one fixed-width cells take up all the space. For this reason, the minimum layout width is hardcoded to 60 columns.
