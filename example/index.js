@@ -2,7 +2,7 @@
  * Example application for COMMAND LINE INTERFAIS
  */
 
-var interfais = require('../'),
+var INTERFAIS = require('../'),
 	packageJson = require('../package.json');
 
 
@@ -134,12 +134,11 @@ var routes = {
 	}
 };
 
-// appFactory eats both layout and route config. This may change in the future
-// @TODO: Change in the future
 var config = {
 	layout: layout,
 	routes: routes
 };
 
-var app = new interfais.appFactory(config);
+var app = new INTERFAIS(config);
+
 app.init();
