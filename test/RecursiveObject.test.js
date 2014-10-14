@@ -1,5 +1,5 @@
 var assert = require('assert'),
-	RecursiveObject = require('../lib/classes/RecursiveObject')
+	RecursiveObject = require('../lib/classes/RecursiveObject');
 
 describe('RecursiveObject', function () {
 	var root = new RecursiveObject('root');
