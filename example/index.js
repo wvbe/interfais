@@ -5,110 +5,6 @@
 var interfais = require('../'),
 	packageJson = require('../package.json');
 
-/***
- * Views
- * -----
- * Create a bunch of views, later to be divided amongst routes and cells. This is where much of your application stuff
- * is going to be rendered for the user. You'll probably want to have one or more folders containing these babies.
- */
-var views = {
-
-	// A plain one-liner with custom colors
-	'header': interfais.viewFactory(function(ui) {
-		ui
-			.padding(0,2)
-			.background('white')
-			.foreground('black')
-			.line('EXAMPLE INTERFAIS '+packageJson.version)
-	}),
-
-	// Wow it's an interactive menu
-	'menu': interfais.viewFactory(function(ui) {
-		ui
-			.padding(1, 2)
-			.margin(1, 2)
-			.background('blue')
-			.foreground('white')
-			.input('Label: ', function(inputData) {
-
-			})
-			.option('Home page', function() {
-				interfais.routeManager.openRoute('');
-			})
-			.option('Other page',function() {
-				interfais.routeManager.openRoute('other-page');
-			})
-			.option('Quit',function() {
-				process.exit();
-			})
-			.spacer()
-			.paragraph('Use tab to move focus between shells, use arrows to move focus within a menu and confirm with return.')
-	}),
-
-	// Some of the ui elements implemented
-	'content--home': interfais.viewFactory(function(ui) {
-
-		ui
-			.margin(1, 2)
-			.h1('Home page of some sorts')
-			.paragraph('Use the viewFactory to generate (rudimentary) UI elements. More UI is gonna be added. Did this text wrap already?')
-			.spacer()
-			.line('escape       Exit application')
-			.line('ctrl+c       Exit application')
-			.line('ctrl+q       Exit application')
-			.line('tab          Focus on next ui')
-			.line('shift+tab    Focus on previous ui')
-			.line('ctrl+r       Redraw')
-			.spacer()
-			.h2('Menu ui')
-			.line('down         Focus next menu item')
-			.line('up           Focus previous menu item')
-			.line('return       Select menu item');
-	}),
-
-	// A view that is opened through anoter route, would replace content--home
-	'content--other-page': interfais.viewFactory(function(ui) {
-		var lastSubmitted = null;
-
-		ui
-			.padding(1, 2)
-			.h1('The other page')
-
-			.paragraph('This is the other page. It has a formatted paragraph and input fields :D', {
-				bold: true
-			})
-
-			.spacer()
-
-			.input('Regular:    ', function(data) {
-				lastSubmitted = data;
-				ui.render();
-			})
-
-			.input('Hidden:     ', function(data) {
-				lastSubmitted = data;
-				ui.render();
-			}, { hidden: true })
-
-			.spacer()
-
-			.paragraph(function() {
-				return ['Last submitted: ' + lastSubmitted];
-			})
-	}),
-
-	// Ui using a callback to display dynamic content
-	'footer': interfais.viewFactory(function(ui) {
-		var odd = false;
-		ui
-			.padding(0,2)
-			.interval(500)
-			.line(function() {
-				odd = !odd;
-				return [(odd ? ' ' : '') +'(c) arghfbl']
-			});
-	})
-};
 
 /***
  * Layout, Rows, Cells
@@ -118,25 +14,40 @@ var views = {
  *
  * Layout can have a width and height attribute, defaults to terminal size
  * Row can have a height attribute, leave empty for stretchy behaviour
- * Cell can have a width attribute, leave empty for stretchy behaviour
+ * Cell can have a width attribute, leav'header'e empty for stretchy behaviour
  * Cells can also have a name attribute for referencing from routeManager, and/or a hardcoded view.
  */
 var layout = [
 
 	// Header row with the toolbar cell
 	{ height: 1, cells: [
-		{ name: 'header', view: views['header']}
+		{ name: 'header', view: function(ui) {
+			ui
+				.padding(0,2)
+				.background('white')
+				.foreground('black')
+				.line('EXAMPLE INTERFAIS '+packageJson.version)
+		}}
 	]},
 
 	// Body row, with the menu and content cells
 	{ cells: [
 		{ name: 'menu', width: 32, canFocus: true },
-		{ name: 'content', canFocus: true }
+		{ name: 'content', canFocus: false }
 	]},
 
 	// Footer cell (with the footer view, which is unnamed thus cannot be routed)
 	{ height: 1, cells: [
-		{ name: 'footer', view: views['footer'], canFocus: false }
+		{ name: 'footer', view: function(ui) {
+			var odd = false;
+			ui
+				.padding(0,2)
+				.interval(500)
+				.line(function() {
+					odd = !odd;
+					return [(odd ? ' ' : '') +'(c) arghfbl']
+				});
+		}, canFocus: false }
 	]}
 ];
 
@@ -148,12 +59,78 @@ var layout = [
 var routes = {
 	// The '' route is always opened on app boot
 	'': {
-		menu: views['menu'],
-		content: views['content--home']
+		menu: function(ui) {
+			ui
+				.padding(1, 2)
+				.margin(1, 2)
+				.background('blue')
+				.foreground('white')
+				.input('Label: ', function(inputData) {
+
+				})
+				.option('Home page', function() {
+					app.routeManager.openRoute('');
+				})
+				.option('Other page',function() {
+					app.routeManager.openRoute('other-page');
+				})
+				.option('Quit',function() {
+					process.exit();
+				})
+				.spacer()
+				.paragraph('Use tab to move focus between shells, use arrows to move focus within a menu and confirm with return.')
+		},
+		content: function(ui) {
+
+			ui
+				.margin(1, 2)
+				.h1('Home page of some sorts')
+				.paragraph('Use the viewFactory to generate (rudimentary) UI elements. More UI is gonna be added. Did this text wrap already?')
+				.spacer()
+				.line('escape       Exit application')
+				.line('ctrl+c       Exit application')
+				.line('ctrl+q       Exit application')
+				.line('tab          Focus on next ui')
+				.line('shift+tab    Focus on previous ui')
+				.line('ctrl+r       Redraw')
+				.spacer()
+				.h2('Menu ui')
+				.line('down         Focus next menu item')
+				.line('up           Focus previous menu item')
+				.line('return       Select menu item');
+		}
 	},
 	'other-page': {
 		// Does not change 'menu' view
-		content: views['content--other-page']
+		content: function(ui) {
+			var lastSubmitted = null;
+
+			ui
+				.padding(1, 2)
+				.h1('The other page')
+
+				.paragraph('This is the other page. It has a formatted paragraph and input fields :D', {
+					bold: true
+				})
+
+				.spacer()
+
+				.input('Regular:    ', function (data) {
+					lastSubmitted = data;
+					ui.render();
+				})
+
+				.input('Hidden:     ', function (data) {
+					lastSubmitted = data;
+					ui.render();
+				}, { hidden: true })
+
+				.spacer()
+
+				.paragraph(function () {
+					return ['Last submitted: ' + lastSubmitted];
+				})
+		}
 	}
 };
 
@@ -165,3 +142,4 @@ var config = {
 };
 
 var app = new interfais.appFactory(config);
+app.init();
