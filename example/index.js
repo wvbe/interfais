@@ -33,7 +33,7 @@ var layout = [
 	// Body row, with the menu and content cells
 	{ cells: [
 		{ name: 'menu', width: 32, canFocus: true },
-		{ name: 'content', canFocus: false }
+		{ name: 'content', canFocus: true }
 	]},
 
 	// Footer cell (with the footer view, which is unnamed thus cannot be routed)
