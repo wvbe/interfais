@@ -33,7 +33,7 @@ describe('Layout', function () {
 	});
 
 	it('can divide up the rest between siblings that are not hardcoded in size', function () {
-		assert.ok(softsizedCells.every(function(cell) {
+		assert.ok(softsizedCells.every(function (cell) {
 			return cell.prerendered.width === 20;
 		}), 40, 'Ues');
 	});

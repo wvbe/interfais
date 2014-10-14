@@ -37,14 +37,14 @@ describe('RecursiveObject', function () {
 		);
 
 		assert.ok(
-			rootChild.getSiblings().every(function(sibl) {
+			rootChild.getSiblings().every(function (sibl) {
 				return sibl.getParent() === rootChild.getParent();
 			}),
 			'All siblings have the same parent as new child'
 		);
 
 		assert.ok(
-			rootChild.getSiblings().every(function(sibl) {
+			rootChild.getSiblings().every(function (sibl) {
 				return sibl !== rootChild;
 			}),
 			'An object is not listed among it\'s siblings'
@@ -60,10 +60,10 @@ describe('RecursiveObject', function () {
 					.addChild((new RecursiveObject())
 						.addChild((new RecursiveObject())
 							.addChild(deepChild)
-						)
 					)
 				)
-			);
+			)
+		);
 
 		assert.strictEqual(
 			deepChild.getParents().length,
