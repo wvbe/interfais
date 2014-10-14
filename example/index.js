@@ -140,5 +140,3 @@ var config = {
 };
 
 var app = new INTERFAIS(config);
-
-app.init();
