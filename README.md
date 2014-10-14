@@ -14,8 +14,8 @@ The UI is defined using the uiFactory, and goes consists of a bunch of (chainabl
 To create your own view:
 
 ```
-var interfais = require('interfais');
-module.exports = interfais.viewFactory(function(ui, viewParameters) {
+// @TODO: Needs update, please see example/index.js instead
+function(ui, viewParameters) {
     var lastBurger = new Date().getTime();
     ui
         .background('blue')
@@ -83,8 +83,7 @@ module.exports = interfais.viewFactory(function(ui, viewParameters) {
             var secondsSinceBurger = (new Date().getTime() - lastBurger)/1000;
             return ['I ate my last burger ' + secondsSinceBurger + ' seconds ago'];
         });
-});
-
+};
 ```
 
 Use the exported view in your configuration, either in a cell configuration, a route configuration or both.
