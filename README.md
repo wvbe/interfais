@@ -111,6 +111,10 @@ I'm not very good with versioning, so I'll not bother with it while I'm still th
     * Instantiate managers within app properly
     * Compatibility with other OS'es than Ubuntu
     * Try it on a mac
+* v 1.0.0
+    * Managers & applicable factories instanced with interfais application, introduces breaking changes
+    * Tried it on a mac, it was OK
+    * Dropping app init() method, dropping route config to constructor
 * v 0.1.1
     * scrolling with shift+up and shift+down
     * ui.input() configurator for text or input fields
