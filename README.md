@@ -46,6 +46,13 @@ module.exports = interfais.viewFactory(function(ui, viewParameters) {
         // Underlined
         .h2('Moar advanced')
         
+        // Listen to certain lifecycle events
+        .on('focus', function() {
+            // Other events are:
+            // blur, open, close, render, interval
+            // menu:shift, menu:confirm
+        })
+        
         // Adds one selectable menu item
         .option('Hit [ENTER] to select me', function() {
             // Run when option item is selected
