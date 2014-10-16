@@ -112,6 +112,7 @@ I'm not very good with versioning, so I'll not bother with it while I'm still th
     * Fix the bugs listed under "Known bugs"
 * v 1.0.0
     * Managers & applicable factories instanced within, and exposed through interfais application instance, this change introduces breaking changes.
+    * ui.stream() for streaming stdout and stderr from spawned child processes, for example
     * Dropping app.init() method, dropping route config to constructor
     * ui.clear() instead of cell.clear() for instantly clearing available ui space
     * Tried it on a mac, it was OK
