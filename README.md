@@ -107,13 +107,14 @@ npm install git+https://git@github.com/wvbe/interfais.git#develop --save
 I'm not very good with versioning, so I'll not bother with it while I'm still the only one using this project. If you'd like to use this project and require versioned dependencies, point to a specific commit, send me a message (and I'll version) or create a fork. Pull requests are, of course, encouraged!
 
 * Bucket list
-    * Instantiate managers within app properly
-    * Compatibility with other OS'es than Ubuntu
-    * Try it on a mac
+    * Windows compati... never mind
+    * Better way to ui.clear(), or rerender select rows in general.
+    * Fix the bugs listed under "Known bugs"
 * v 1.0.0
-    * Managers & applicable factories instanced with interfais application, introduces breaking changes
+    * Managers & applicable factories instanced within, and exposed through interfais application instance, this change introduces breaking changes.
+    * Dropping app.init() method, dropping route config to constructor
+    * ui.clear() instead of cell.clear() for instantly clearing available ui space
     * Tried it on a mac, it was OK
-    * Dropping app init() method, dropping route config to constructor
 * v 0.1.1
     * scrolling with shift+up and shift+down
     * ui.input() configurator for text or input fields
@@ -127,7 +128,7 @@ I'm not very good with versioning, so I'll not bother with it while I'm still th
     * Initial release
 
 # Compatibility
-Works on my machine (ubuntu box). Doesn't work on windows. Not tested on an apple.
+Works on my machine (ubuntu box). Seen it work on an apple. Doesn't work on windows, though it didn't break as hard as I had expected it to. Pull requests are welcome, since I have no intention of adopting Windows as a development platform myself.
 
 # Known bugs
 * The system runs into an infinite loop or division by zero somewhere when the UI is too narrow to leave room for stretching cells one fixed-width cells take up all the space. For this reason, the minimum layout width is hardcoded to 60 columns.
