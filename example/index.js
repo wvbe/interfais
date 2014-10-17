@@ -85,6 +85,11 @@ app.routeManager.registerRoute('', {
 		ui
 			.margin(1, 2)
 			.h1('Home page of some sorts')
+			.keyValue({
+				'One': 'Uno',
+				'Two': 'Dos',
+				'Three': 'Tres',
+			})
 			.paragraph('Use the viewFactory to generate (rudimentary) UI elements. More UI is gonna be added. Did this text wrap already?')
 			.spacer()
 			.line('escape       Exit application')
