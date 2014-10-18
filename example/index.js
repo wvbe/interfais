@@ -85,24 +85,26 @@ app.routeManager.registerRoute('', {
 		ui
 			.margin(1, 2)
 			.h1('Home page of some sorts')
+			.paragraph('These are "global" key combo\'s, they should always work:')
+			.spacer()
 			.keyValue({
-				'One': 'Uno',
-				'Two': 'Dos',
-				'Three': 'Tres',
+				'escape': 'Exit application',
+				'ctrl+c': 'Exit application',
+				'ctrl+q': 'Exit application',
+				'tab': 'Focus on next ui',
+				'shift+tab': 'Focus on previous ui',
+				'ctrl+r': 'Redraw'
 			})
-			.paragraph('Use the viewFactory to generate (rudimentary) UI elements. More UI is gonna be added. Did this text wrap already?')
 			.spacer()
-			.line('escape       Exit application')
-			.line('ctrl+c       Exit application')
-			.line('ctrl+q       Exit application')
-			.line('tab          Focus on next ui')
-			.line('shift+tab    Focus on previous ui')
-			.line('ctrl+r       Redraw')
+			.paragraph('The following keys work only on the part of the screen that is highlighted, and may not always be applicable:')
 			.spacer()
-			.h2('Menu ui')
-			.line('down         Focus next menu item')
-			.line('up           Focus previous menu item')
-			.line('return       Select menu item');
+			.keyValue({
+				'down': 'Focus next menu item',
+				'up': 'Focus previous menu item',
+				'return': 'Select menu item',
+				'shift+up': 'Scroll up',
+				'shift+down': 'Scroll down'
+			})
 	}
 });
 

@@ -14,7 +14,6 @@ The UI is defined using the uiFactory, and goes consists of a bunch of (chainabl
 To create your own view:
 
 ```
-// @TODO: Needs update, please see example/index.js instead
 function(ui, viewParameters) {
     var lastBurger = new Date().getTime();
     ui
@@ -109,6 +108,7 @@ I'm not very good with versioning, so I'll not bother with it while I'm still th
 * Bucket list
     * Windows compati... never mind
     * Better way to ui.clear(), or rerender select rows in general.
+    * Color themes/palettes for different cases (eg. focused, blurred, highlighted, dimmed, error, warn, info, etc...)
     * Fix the bugs listed under "Known bugs"
 * v 1.0.0
     * Managers & applicable factories instanced within, and exposed through interfais application instance, this change introduces breaking changes.
@@ -132,6 +132,8 @@ I'm not very good with versioning, so I'll not bother with it while I'm still th
 Works on my machine (ubuntu box). Seen it work on an apple. Doesn't work on windows, though it didn't break as hard as I had expected it to. Pull requests are welcome, since I have no intention of adopting Windows as a development platform myself.
 
 # Known bugs
+* If you're feeling brave, run a text search in lib/ for "@TODO"
+* Lists and keyValue pairs lose their special formatting after focus or blur, because there is no proper color palette thingy theme.
 * The system runs into an infinite loop or division by zero somewhere when the UI is too narrow to leave room for stretching cells one fixed-width cells take up all the space. For this reason, the minimum layout width is hardcoded to 60 columns.
 * Input fields may render partial formatting characters when they are almost as wide as the available width. The input value should be clipped, instead of the whole rendered line.
 
