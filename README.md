@@ -110,11 +110,15 @@ I'm not very good with versioning, so I'll not bother with it while I'm still th
     * Better way to ui.clear(), or rerender select rows in general.
     * Color themes/palettes for different cases (eg. focused, blurred, highlighted, dimmed, error, warn, info, etc...)
     * Fix the bugs listed under "Known bugs"
+    * Not prerender lines before viewport & scroll, instead remember last queueItem & queueItemLine
+    * Not preprender lines after viewport & scroll
+    * Exit early when cannot scroll, (or at least not clear lines further than one (or scrollDistance) rows away from lines when scrolling up or down)
 * v 1.0.0
     * Managers & applicable factories instanced within, and exposed through interfais application instance, this change introduces breaking changes.
     * ui.stream() for streaming stdout and stderr from spawned child processes, for example
-    * Dropping app.init() method, dropping route config to constructor
+    * ui.keyValue() for formatting key/value pairs
     * ui.clear() instead of cell.clear() for instantly clearing available ui space
+    * Dropping app.init() method, dropping route config to constructor
     * Tried it on a mac, it was OK
 * v 0.1.1
     * scrolling with shift+up and shift+down
