@@ -19,36 +19,29 @@ var INTERFAIS = require('../'),
 var app = new INTERFAIS({
 	layout: [
 
-		// Header row with the toolbar cell
-		{ height: 1, cells: [
-			{ name: 'header', view: function (ui) {
-				ui
-					.padding(0, 2)
-					.background('white')
-					.foreground('black')
-					.line('EXAMPLE INTERFAIS ' + packageJson.version)
-			}}
-		]},
+		{ height: 1, cells: [function (ui) {
+			ui
+				.padding(0, 2)
+				.background('white')
+				.foreground('black')
+				.line('EXAMPLE INTERFAIS ' + packageJson.version)
+		}]},
 
-		// Body row, with the menu and content cells
 		{ cells: [
 			{ name: 'menu', width: 32, canFocus: true },
 			{ name: 'content', canFocus: true }
 		]},
 
-		// Footer cell (with the footer view, which is unnamed thus cannot be routed)
-		{ height: 1, cells: [
-			{ name: 'footer', view: function (ui) {
-				var odd = false;
-				ui
-					.padding(0, 2)
-					.interval(500)
-					.line(function () {
-						odd = !odd;
-						return [(odd ? ' ' : '') + '(c) arghfbl']
-					});
-			}, canFocus: false }
-		]}
+		{ height: 1, cells: [function (ui) {
+			var odd = false;
+			ui
+				.padding(0, 2)
+				.interval(500)
+				.line(function () {
+					odd = !odd;
+					return [(odd ? ' ' : '') + '(c) arghfbl']
+				});
+		}]}
 	]
 });
 

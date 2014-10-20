@@ -33,6 +33,19 @@ function(ui, viewParameters) {
         // Wrapping text
         .paragraph('Paragraph text, or a bunch of paragraphs. Text in this style wraps to the edges of the cell nicely. The following line renders a ruler of dash characters:')
         
+        // Unordered list
+        .list([
+            'List items wrap as well...',
+            '...and are preceded by a list bullet'
+        ])
+        
+        // Simple table of key/value pairs
+        .keyValue({
+            'Method': 'ui.keyValue()',
+            'Purpose': 'To present key/value pairs, kind of like a definition list',
+            'Arguments': 'An object, or an array of objects describing the key and value'
+        })        
+        
         // Character repeat across view width
         .ruler('-')
         
@@ -103,7 +116,7 @@ npm install git+https://git@github.com/wvbe/interfais.git#develop --save
 ```
 
 # Other notes
-I'm not very good with versioning, so I'll not bother with it while I'm still the only one using this project. If you'd like to use this project and require versioned dependencies, point to a specific commit, send me a message (and I'll version) or create a fork. Pull requests are, of course, encouraged!
+If you'd like to use this project and require versioned dependencies, point to a specific tag, commit, send me a message (and I'll version) or create a fork. Pull requests are, of course, encouraged!
 
 * Bucket list
     * Windows compati... never mind
@@ -113,6 +126,7 @@ I'm not very good with versioning, so I'll not bother with it while I'm still th
     * Not prerender lines before viewport & scroll, instead remember last queueItem & queueItemLine
     * Not preprender lines after viewport & scroll
     * Exit early when cannot scroll, (or at least not clear lines further than one (or scrollDistance) rows away from lines when scrolling up or down)
+    * pageUp & pageDown should first/last focus ui menu
 * v 1.0.0
     * Managers & applicable factories instanced within, and exposed through interfais application instance, this change introduces breaking changes.
     * ui.stream() for streaming stdout and stderr from spawned child processes, for example
@@ -140,6 +154,7 @@ Works on my machine (ubuntu box). Seen it work on an apple. Doesn't work on wind
 * Lists and keyValue pairs lose their special formatting after focus or blur, because there is no proper color palette thingy theme.
 * The system runs into an infinite loop or division by zero somewhere when the UI is too narrow to leave room for stretching cells one fixed-width cells take up all the space. For this reason, the minimum layout width is hardcoded to 60 columns.
 * Input fields may render partial formatting characters when they are almost as wide as the available width. The input value should be clipped, instead of the whole rendered line.
+* The system is limited in that it cannot detect synchronous ui.render() calls in ui.render() line callbacks. This would cause an infinite loop and out-of-memory crash.
 
 # Licence
 Copyright (c) 2014 Wybe Minnebo
