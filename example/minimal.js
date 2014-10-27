@@ -9,6 +9,9 @@
 					.option('Quit', function () {
 						process.exit();
 					})
+					.option('Also quit', function () {
+						process.exit();
+					});
 			}}
 	]
 ]}));

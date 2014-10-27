@@ -13,18 +13,17 @@ var INTERFAIS = require('../'),
  *
  * Layout can have a width and height attribute, defaults to terminal size
  * Row can have a height attribute, leave empty for stretchy behaviour
- * Cell can have a width attribute, leav'header'e empty for stretchy behaviour
+ * Cell can have a width attribute, leave empty for stretchy behaviour
  * Cells can also have a name attribute for referencing from routeManager, and/or a hardcoded view.
  */
 var app = new INTERFAIS({
 	layout: [
-
 		{ height: 1, cells: [function (ui) {
 			ui
 				.padding(0, 2)
 				.background('white')
 				.foreground('black')
-				.line('EXAMPLE INTERFAIS ' + packageJson.version)
+				.line('EXAMPLE INTERFAIS ' + packageJson.version);
 		}]},
 
 		{ cells: [
@@ -59,7 +58,7 @@ app.routeManager.registerRoute('', {
 			.background('blue')
 			.foreground('white')
 			.input('Label: ', function (inputData) {
-
+				// your code goes here
 			})
 			.option('Home page', function () {
 				app.routeManager.openRoute('');
@@ -71,7 +70,7 @@ app.routeManager.registerRoute('', {
 				process.exit();
 			})
 			.spacer()
-			.paragraph('Use tab to move focus between shells, use arrows to move focus within a menu and confirm with return.')
+			.paragraph('Use tab to move focus between shells, use arrows to move focus within a menu and confirm with return.');
 	},
 	content: function (ui) {
 
@@ -97,7 +96,7 @@ app.routeManager.registerRoute('', {
 				'return': 'Select menu item',
 				'shift+up': 'Scroll up',
 				'shift+down': 'Scroll down'
-			})
+			});
 	}
 });
 
@@ -110,28 +109,22 @@ app.routeManager.registerRoute('other-page', {
 		ui
 			.padding(1, 2)
 			.h1('The other page')
-
-			.paragraph('This is the other page. It has a formatted paragraph and input fields :D', {
+			.paragraph('This is the other page. It has a formatted paragraph and fork fields :D', {
 				bold: true
 			})
-
 			.spacer()
-
 			.input('Regular:    ', function (data) {
 				lastSubmitted = data;
 				ui.render();
 			})
-
 			.input('Hidden:     ', function (data) {
 				lastSubmitted = data;
 				ui.render();
 			}, { hidden: true })
-
 			.spacer()
-
 			.paragraph(function () {
 				return ['Last submitted: ' + lastSubmitted];
-			})
+			});
 	}
 });
 

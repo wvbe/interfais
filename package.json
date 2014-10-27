@@ -4,7 +4,7 @@
 	"description": "Framework to quickly create your own terminal GUI.",
 	"main": "main.js",
 	"scripts": {
-		"test": "rm -rf ./out && jsdoc2md ./lib/**/*.js > docs.md && mocha --reporter spec",
+		"test": "rm -rf ./out && jsdoc ./lib/ -r && mocha --reporter spec",
 		"start": "node example/elaborate"
 	},
 	"repository": {

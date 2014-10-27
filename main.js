@@ -1,1 +1,1 @@
-module.exports = require('./lib/factories/appFactory');
+module.exports = require('./lib/classes/Interfais');
