@@ -41,7 +41,15 @@ var app = new INTERFAIS({
 					return [(odd ? ' ' : '') + '(c) arghfbl']
 				});
 		}]}
-	]
+	],
+	keyBinds: {
+		exit: ['q', 'ctrl+c'],
+		render: 'r',
+		scrollUp: 'pageUp',
+		scrollDown: 'pageDown',
+		focusNext: 'right',
+		focusPrevious: 'left'
+	}
 });
 
 /***
