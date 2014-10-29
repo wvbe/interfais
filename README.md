@@ -127,6 +127,7 @@ If you'd like to use this project and require versioned dependencies, point to a
     * Not preprender lines after viewport & scroll
     * Exit early when cannot scroll, (or at least not clear lines further than one (or scrollDistance) rows away from lines when scrolling up or down)
     * pageUp & pageDown should first/last focus ui menu
+    * A catch() mechanism in InputManager that keeps an array of catches, but only uses the most recent one an pops when released.
 * v 1.0.0
     * Managers & applicable factories instanced within, and exposed through interfais application instance, this change introduces breaking changes.
     * ui.stream() for streaming stdout and stderr from spawned child processes, for example
@@ -134,6 +135,9 @@ If you'd like to use this project and require versioned dependencies, point to a
     * ui.clear() instead of cell.clear() for instantly clearing available ui space
     * Dropping app.init() method, dropping route config to constructor
     * Tried it on a mac, it was OK
+    * Configurable key combo's for interactions
+    * InputManager.catch can alternatively emit named events, which is actually preferred for functionality tucked away in an aspect
+    * Code cleanup everywhere
 * v 0.1.1
     * scrolling with shift+up and shift+down
     * ui.input() configurator for text or input fields
