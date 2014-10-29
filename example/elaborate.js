@@ -43,12 +43,15 @@ var app = new INTERFAIS({
 		}]}
 	],
 	keyBinds: {
-		exit: ['q', 'ctrl+c'],
-		render: 'r',
-		scrollUp: 'pageUp',
-		scrollDown: 'pageDown',
-		focusNext: 'right',
-		focusPrevious: 'left'
+		exit: ['ctrl+q', 'ctrl+c'],
+		render: 'ctrl+r',
+		scrollUp: 'shift+up',
+		scrollDown: 'shift+down',
+		focusNext: 'tab',
+		focusPrevious: 'shift+tab',
+		menuPrevious: 'up',
+		menuNext: 'down',
+		menuConfirm: 'return'
 	}
 });
 
