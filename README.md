@@ -98,8 +98,6 @@ function(ui, viewParameters) {
 };
 ```
 
-Use the exported view in your configuration, either in a cell configuration, a route configuration or both.
-
 # Install
 
 ```
@@ -118,16 +116,6 @@ npm install git+https://git@github.com/wvbe/interfais.git#develop --save
 # Other notes
 If you'd like to use this project and require versioned dependencies, point to a specific tag, commit, send me a message (and I'll version) or create a fork. Pull requests are, of course, encouraged!
 
-* Bucket list
-    * Windows compati... never mind
-    * Better way to ui.clear(), or rerender select rows in general.
-    * Color themes/palettes for different cases (eg. focused, blurred, highlighted, dimmed, error, warn, info, etc...)
-    * Fix the bugs listed under "Known bugs"
-    * Not prerender lines before viewport & scroll, instead remember last queueItem & queueItemLine
-    * Not preprender lines after viewport & scroll
-    * Exit early when cannot scroll, (or at least not clear lines further than one (or scrollDistance) rows away from lines when scrolling up or down)
-    * pageUp & pageDown should first/last focus ui menu
-    * A catch() mechanism in InputManager that keeps an array of catches, but only uses the most recent one an pops when released.
 * v 1.0.0
     * Managers & applicable factories instanced within, and exposed through interfais application instance, this change introduces breaking changes.
     * ui.stream() for streaming stdout and stderr from spawned child processes, for example
@@ -137,7 +125,7 @@ If you'd like to use this project and require versioned dependencies, point to a
     * Tried it on a mac, it was OK
     * Configurable key combo's for interactions
     * InputManager.catch can alternatively emit named events, which is actually preferred for functionality tucked away in an aspect
-    * Code cleanup everywhere
+    * Code cleanup everywhere, docs for the most important parts
 * v 0.1.1
     * scrolling with shift+up and shift+down
     * ui.input() configurator for text or input fields
@@ -149,6 +137,17 @@ If you'd like to use this project and require versioned dependencies, point to a
     * Reusing FocusManager for ui interactivity as well
 * v 0.1.0
     * Initial release
+
+# Bucket list
+* Windows compati... never mind
+* Better way to ui.clear(), or rerender select rows in general.
+* Color themes/palettes for different cases (eg. focused, blurred, highlighted, dimmed, error, warn, info, etc...)
+* Fix the bugs listed under "Known bugs"
+* Not prerender lines before viewport & scroll, instead remember last queueItem & queueItemLine
+* Not preprender lines after viewport & scroll
+* Exit early when cannot scroll, (or at least not clear lines further than one (or scrollDistance) rows away from lines when scrolling up or down)
+* pageUp & pageDown should first/last focus ui menu
+* A catch() mechanism in InputManager that keeps an array of catches, but only uses the most recent one an pops when released.
 
 # Compatibility
 Works on my machine (ubuntu box). Seen it work on an apple. Doesn't work on windows, though it didn't break as hard as I had expected it to. Pull requests are welcome, since I have no intention of adopting Windows as a development platform myself.
