@@ -1,10 +1,10 @@
 {
 	"name": "interfais",
-	"version": "1.0.0-rc1",
+	"version": "1.0.0",
 	"description": "Framework to quickly create your own terminal GUI.",
 	"main": "main.js",
 	"scripts": {
-		"test": "rm -rf ./out && jsdoc ./lib/ -r && mocha --reporter spec",
+		"test": "mocha --reporter spec",
 		"start": "node example/elaborate"
 	},
 	"repository": {
