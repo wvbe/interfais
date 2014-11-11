@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+out/
+npm-debug.log
+test/
+example/
+screenshot.gif
+.editorconfig
+.gitignore
