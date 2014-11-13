@@ -108,9 +108,7 @@ npm install
 npm start
 
 # Use in project
-npm install git+https://git@github.com/wvbe/interfais.git#master --save
-# or
-npm install git+https://git@github.com/wvbe/interfais.git#develop --save
+npm install interfais
 ```
 
 # Other notes
