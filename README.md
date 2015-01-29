@@ -157,7 +157,7 @@ Works on my machine (ubuntu box). Seen it work on an apple. Doesn't work on wind
 * Input fields may render partial formatting characters when they are almost as wide as the available width. The input value should be clipped, instead of the whole rendered line.
 * The system is limited in that it cannot detect synchronous ui.render() calls in ui.render() line callbacks. This would cause an infinite loop and out-of-memory crash.
 
-# Licence
+# License
 Copyright (c) 2014 Wybe Minnebo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
